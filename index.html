@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Controle Fitness</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+<h2>Controle Fitness</h2>
+<p class="small">Alimentação • Treino • Evolução • PWA</p>
+
+<!-- TEMPLATES DE TREINO -->
+<div class="card">
+<h3>📆 Templates de Treino (30 dias)</h3>
+<button onclick="generateTemplate()">Gerar Treinos (1 a 30)</button>
+</div>
+
+<!-- TREINO DO DIA -->
+<div class="card">
+<h3>🏋️ Treino do Dia</h3>
+
+<input type="date" id="trainingDate">
+
+<select id="trainingNumber">
+  <option value="">Selecione o treino</option>
+  <script>
+    for(let i=1;i<=30;i++){
+      document.write(`<option value="${i}">Treino ${i}</option>`);
+    }
+  </script>
+</select>
+
+<hr>
+
+<input id="exName" placeholder="Exercício">
+<input id="exSets" type="number" placeholder="Séries">
+<input id="exReps" type="number" placeholder="Repetições">
+<input id="exLoad" type="number" placeholder="Carga (kg)">
+<input type="file" id="exVideo" accept="video/*">
+
+<button onclick="addExercise()">Adicionar exercício</button>
+
+<div id="exerciseList"></div>
+
+<button onclick="saveTraining()">Salvar treino</button>
+</div>
+
+<!-- DASHBOARD TREINO -->
+<div class="card">
+<h3>📊 Dashboard de Treino</h3>
+<canvas id="freqChart"></canvas>
+<canvas id="volumeChart"></canvas>
+</div>
+
+<!-- HISTÓRICO POR EXERCÍCIO -->
+<div class="card">
+<h3>📈 Histórico por Exercício</h3>
+<select id="exerciseHistorySelect" onchange="drawExerciseHistory()"></select>
+<canvas id="exerciseHistoryChart"></canvas>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
