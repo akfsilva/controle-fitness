@@ -1,48 +1,52 @@
 body {
-  background: #0b0b0b;
+  background: #0d0d0d;
   color: #fff;
   font-family: Arial, sans-serif;
   margin: 0;
 }
 
 header {
-  background: linear-gradient(90deg, #ff0000, #ff9900);
+  background: linear-gradient(90deg, #c40000, #ff9500);
   padding: 15px;
   text-align: center;
 }
 
-.panel {
-  border: 2px solid #ff9900;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 8px;
-  background: #111;
+h1, h2 {
+  text-transform: uppercase;
 }
 
-input, select, button {
-  width: 100%;
-  margin: 5px 0;
-  padding: 8px;
+main {
+  padding: 15px;
+}
+
+section {
+  border: 2px solid #ff9500;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #1a1a1a;
 }
 
 button {
-  background: #ff0000;
-  color: #fff;
+  background: #c40000;
   border: none;
+  color: white;
+  padding: 8px 12px;
+  margin: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 button:hover {
-  background: #cc0000;
+  background: #ff9500;
 }
 
-video {
-  width: 100%;
-  margin-top: 10px;
+input, select {
+  padding: 5px;
+  margin: 3px;
 }
 
-#timer {
-  font-size: 2em;
-  text-align: center;
-  margin: 10px 0;
+.exercise {
+  border: 1px solid #555;
+  padding: 8px;
+  margin-bottom: 8px;
 }
