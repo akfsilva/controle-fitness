@@ -1,7 +1,95 @@
-body{font-family:Inter,system-ui;background:#f4f6fb;margin:0}
-.container{max-width:650px;margin:auto;padding:20px}
-.card{background:#fff;padding:16px;border-radius:16px;margin-bottom:20px}
-input,select,button{width:100%;margin-top:8px;padding:10px;border-radius:10px}
-button{background:#2f80ed;color:#fff;border:none}
-canvas{margin-top:20px}
+* {
+  box-sizing: border-box;
+  font-family: 'Arial Black', Impact, sans-serif;
+}
 
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1b0000, #000);
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #b71c1c, #880e4f);
+  border-bottom: 4px solid #ffeb3b;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  padding: 15px;
+}
+
+.selectTreino {
+  background: #111;
+  border: 2px solid #ffeb3b;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+select, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+button {
+  background: linear-gradient(#ffeb3b, #fbc02d);
+  border: none;
+  cursor: pointer;
+}
+
+button.danger {
+  background: linear-gradient(#ff5252, #c62828);
+  color: #fff;
+}
+
+button.finish {
+  background: linear-gradient(#69f0ae, #00c853);
+}
+
+.exercise {
+  background: #111;
+  border: 2px solid #f44336;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.exercise h3 {
+  margin-top: 0;
+  color: #ffeb3b;
+}
+
+video {
+  width: 100%;
+  margin: 10px 0;
+  border: 2px solid #ffeb3b;
+}
+
+.series label {
+  display: block;
+  margin: 5px 0;
+}
+
+.timer {
+  margin-top: 10px;
+}
+
+.timer button {
+  width: 32%;
+}
+
+.status {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
