@@ -1,22 +1,18 @@
-const CACHE = "fighter-cache-v2";
-
-self.addEventListener("install", e => {
+self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(cache => {
+    caches.open('fighter-cache').then(cache => {
       return cache.addAll([
-        "./",
-        "./index.html",
-        "./style.css",
-        "./app.js",
-        "./manifest.json"
+        './',
+        './index.html',
+        './style.css',
+        './app.js'
       ]);
     })
   );
 });
 
-self.addEventListener("fetch", e => {
+self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(res => res || fetch(e.request))
   );
 });
-
