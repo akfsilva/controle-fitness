@@ -15,7 +15,7 @@
 
   <header>
     <h1>🔥 FIGHTER TRAINING 🔥</h1>
-    <p>Modo Treino Ativo</p>
+    <p>Treinos de 30 dias, execução guiada</p>
   </header>
 
   <main>
@@ -27,31 +27,50 @@
       <div class="buttons">
         <button onclick="iniciarTreino()">INICIAR</button>
         <button class="danger" onclick="excluirTreino()">EXCLUIR TREINO</button>
+        <button onclick="abrirMontagem()">MONTAR TREINO</button>
       </div>
     </section>
 
     <section id="treinoAtivo" class="hidden">
       <h2 id="treinoTitulo"></h2>
-
       <div id="exercicios"></div>
-
       <div class="status">
         <p id="progresso"></p>
         <button class="finish" onclick="finalizarTreino()">FINALIZAR TREINO</button>
       </div>
     </section>
 
+    <section id="montagemTreino" class="hidden">
+      <h2>MONTAGEM DE TREINO</h2>
+      <div id="listaExercicios"></div>
+      <div class="buttons">
+        <button onclick="salvarMontagem()">SALVAR TREINO</button>
+        <button onclick="fecharMontagem()">FECHAR</button>
+      </div>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <h2>DASHBOARD DE TREINO</h2>
+      <canvas id="graficoFrequencia"></canvas>
+      <canvas id="graficoCalorias"></canvas>
+      <button onclick="fecharDashboard()">FECHAR</button>
+    </section>
+
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="app.js"></script>
 
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js");
+      navigator.serviceWorker.register("./sw.js")
+        .then(() => console.log("SW registrado"))
+        .catch(console.error);
     }
   </script>
 
 </body>
 </html>
+
 
 
