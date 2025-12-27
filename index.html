@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Fighter Training</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Manifest -->
+  <link rel="manifest" href="./manifest.json">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#e10600">
+
+  <!-- iOS support -->
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('./sw.js')
+          .then(reg => console.log('SW registrado:', reg.scope))
+          .catch(err => console.error('SW erro:', err));
+      });
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+  </style>
 </head>
+
 <body>
-
-<header>
-  <h1>🥊 Fighter Training</h1>
-</header>
-
-<main>
-
-<section>
-  <h2>Treinos</h2>
-  <select id="treinoSelect"></select>
-  <button onclick="novoExercicio()">➕ Exercício</button>
-  <button onclick="excluirTreino()">🗑️ Limpar Treino</button>
-  <button onclick="iniciarTreino()">▶️ Iniciar Treino</button>
-</section>
-
-<section>
-  <h2>Editor</h2>
-  <div id="listaExercicios"></div>
-</section>
-
-<section>
-  <h2>Treino Ativo</h2>
-  <div id="treinoExecucao"></div>
-  <div id="cronometro">
-    <span id="tempo">00:00</span><br>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="pauseTimer()">Pause</button>
-    <button onclick="resetTimer()">Reset</button>
-  </div>
-  <button onclick="finalizarTreino()">🏁 Finalizar Treino</button>
-</section>
-
-<section>
-  <h2>Gráficos</h2>
-  <canvas id="grafTreinos"></canvas>
-  <canvas id="grafCalorias"></canvas>
-</section>
-
-</main>
-
-<script src="app.js"></script>
+  <h1>Fighter Training</h1>
+  <p>App de treino em modo PWA</p>
 </body>
 </html>
