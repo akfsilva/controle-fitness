@@ -1,52 +1,94 @@
+:root {
+  --primary: #ffcc00;
+  --secondary: #d32f2f;
+  --bg-dark: #121212;
+  --font-pixel: 'Press Start 2P', cursive;
+}
+
 body {
-  background: #0d0d0d;
+  background-color: var(--bg-dark);
   color: #fff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-}
-
-header {
-  background: linear-gradient(90deg, #c40000, #ff9500);
-  padding: 15px;
-  text-align: center;
-}
-
-h1, h2 {
+  font-family: var(--font-pixel);
+  margin: 0; padding: 20px;
   text-transform: uppercase;
+  overflow-x: hidden;
 }
 
-main {
-  padding: 15px;
+.hidden { display: none !important; }
+
+/* SPLASH SCREEN */
+#splash-screen {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle, #333 0%, #000 100%);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 2000; cursor: pointer;
 }
 
-section {
-  border: 2px solid #ff9500;
-  margin-bottom: 20px;
-  padding: 10px;
-  background: #1a1a1a;
+.logo-title {
+  font-size: 2.5rem; text-align: center; color: var(--secondary);
+  text-shadow: 4px 4px 0 var(--primary);
+  line-height: 1.2;
 }
 
+.logo-title span { color: #fff; font-size: 1.8rem; }
+
+.insert-coin-anim {
+  text-align: center; margin-top: 50px;
+  color: var(--primary);
+  animation: blink 0.8s infinite;
+  font-size: 1rem;
+}
+
+.copyright { position: absolute; bottom: 20px; font-size: 0.5rem; width: 100%; text-align: center; opacity: 0.6; }
+
+/* CRT & CARDS */
+.crt-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.1) 50%), 
+              linear-gradient(90deg, rgba(255,0,0,0.03), rgba(0,255,0,0.01), rgba(0,255,0,0.03));
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none; z-index: 100;
+}
+
+.arcade-card {
+  background: #1e1e1e; border: 4px solid #444;
+  padding: 15px; margin-bottom: 20px; box-shadow: 6px 6px 0px #000;
+}
+
+.section-title {
+  background: var(--secondary); color: white;
+  display: inline-block; padding: 5px 10px; margin-top: -25px;
+  border: 2px solid #fff; font-size: 0.6rem;
+}
+
+/* BOTÕES */
 button {
-  background: #c40000;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  margin: 5px;
-  cursor: pointer;
-  font-weight: bold;
+  font-family: var(--font-pixel); border: none; padding: 12px;
+  cursor: pointer; box-shadow: 4px 4px 0px #000; margin: 5px; font-size: 0.6rem;
 }
 
-button:hover {
-  background: #ff9500;
+.btn-yellow { background: var(--primary); color: #000; }
+.btn-red { background: var(--secondary); color: #fff; }
+.btn-green { background: #4caf50; color: #fff; }
+.btn-big { width: 100%; font-size: 1rem; }
+
+/* HEALTH BAR */
+.health-bar { width: 100%; height: 20px; background: #333; border: 2px solid #fff; margin-bottom: 10px; }
+.health-fill { width: 100%; height: 100%; background: linear-gradient(to bottom, #ffff00, #ff8000); transition: width 0.3s; }
+
+#tempo { font-size: 2.5rem; color: var(--primary); display: block; text-align: center; }
+
+.arcade-input, .arcade-select {
+  width: 100%; padding: 10px; background: #000; color: var(--primary);
+  border: 2px solid var(--primary); font-family: var(--font-pixel); margin-bottom: 5px;
 }
 
-input, select {
-  padding: 5px;
-  margin: 3px;
-}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-.exercise {
-  border: 1px solid #555;
-  padding: 8px;
-  margin-bottom: 8px;
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
 }
