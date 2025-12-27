@@ -2,67 +2,73 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Fighter Training</title>
-
+  <title>Fighter Training | Street Edition</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#000000">
-
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="icon-192.png">
-
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body class="is-loading">
 
-<header>
-  <h1>🥊 Fighter Training</h1>
+<div class="crt-overlay"></div>
+
+<div id="splash-screen" onclick="startGame()">
+  <div class="splash-content">
+    <h1 class="logo-title">FIGHTER<br><span>TRAINING</span></h1>
+    <div class="insert-coin-anim">INSERT COIN</div>
+    <p class="copyright">© 2025 GEMINI-CAPCOM STYLE</p>
+  </div>
+</div>
+
+<header id="main-header" class="hidden">
+  <h1 class="glitch" data-text="FIGHTER TRAINING">FIGHTER TRAINING</h1>
 </header>
 
-<main>
+<main id="main-content" class="hidden">
+<div class="container-grid">
+  <section class="arcade-card">
+    <h2 class="section-title">SELECT STAGE</h2>
+    <div class="control-group">
+      <select id="treinoSelect" class="arcade-select"></select>
+      <div class="button-grid">
+        <button onclick="novoExercicio()" class="btn-yellow">➕ ADD MOVE</button>
+        <button onclick="excluirTreino()" class="btn-red">🗑️ CLEAR</button>
+        <button onclick="iniciarTreino()" class="btn-green btn-big">▶️ FIGHT!</button>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>Treinos</h2>
-  <select id="treinoSelect"></select>
-  <button onclick="novoExercicio()">➕ Exercício</button>
-  <button onclick="excluirTreino()">🗑️ Limpar Treino</button>
-  <button onclick="iniciarTreino()">▶️ Iniciar Treino</button>
-</section>
+  <section class="arcade-card">
+    <h2 class="section-title">COMMAND LIST</h2>
+    <div id="listaExercicios" class="pixel-list"></div>
+  </section>
 
-<section>
-  <h2>Editor</h2>
-  <div id="listaExercicios"></div>
-</section>
+  <section class="arcade-card highlight">
+    <h2 class="section-title">BATTLE ARENA</h2>
+    <div id="treinoExecucao" class="active-workout"></div>
+    <div class="timer-container">
+      <div class="health-bar"><div id="health-fill" class="health-fill"></div></div>
+      <span id="tempo">00:00</span>
+      <div class="timer-buttons">
+        <button onclick="startTimer()" class="btn-start">START</button>
+        <button onclick="pauseTimer()" class="btn-pause">PAUSE</button>
+        <button onclick="resetTimer()" class="btn-reset">RESET</button>
+      </div>
+    </div>
+    <button onclick="finalizarTreino()" class="btn-finish">🏁 K.O. (FINISH)</button>
+  </section>
 
-<section>
-  <h2>Treino Ativo</h2>
-  <div id="treinoExecucao"></div>
-  <div id="cronometro">
-    <span id="tempo">00:00</span><br>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="pauseTimer()">Pause</button>
-    <button onclick="resetTimer()">Reset</button>
-  </div>
-  <button onclick="finalizarTreino()">🏁 Finalizar Treino</button>
-</section>
-
-<section>
-  <h2>Gráficos</h2>
-  <canvas id="grafTreinos"></canvas>
-  <canvas id="grafCalorias"></canvas>
-</section>
-
+  <section class="arcade-card">
+    <h2 class="section-title">SCOREBOARD</h2>
+    <div class="chart-container"><canvas id="grafTreinos"></canvas></div>
+    <div class="chart-container"><canvas id="grafCalorias"></canvas></div>
+  </section>
+</div>
 </main>
 
 <script src="app.js"></script>
-
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js", { scope: "./" });
-  });
-}
-</script>
-
 </body>
 </html>
